@@ -15,8 +15,9 @@ void setup() {
   for (uint8_t i = 0; i < dxl_count; i++){
     dxl.addModel<DxlModel::X>(dxl_id[i]);           
   }    
-  delay(2000);  
-  setextADC(adcext);
+  delay(2000);
+    
+  setextADC(adcext); 
   setTimers();
   setPinModes();
   startDebugSerial(1000000);
@@ -27,7 +28,7 @@ void setup() {
 }
 
 void loop() {
-  
+
   microSec = micros();
   Serial.printf("FORCE: %f [N]\t%f [N]\t", read_Force(0), read_Force(1));  
   Serial.printf("DELAY: %d\n", micros() - microSec);
