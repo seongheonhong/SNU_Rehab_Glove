@@ -12,7 +12,7 @@
   //#include <ADC_util.h>
   #include <ADS1115_WE.h> 
   #include <Dynamixel.h>
-  #include <hsh_lc4.h>
+  #include <LoadCell4_HSH.h>
 
 
   // Pin Configuration

@@ -4,12 +4,14 @@
 void LoadCell4_HSH::default_cfg_setup(uint8_t intpin, uint8_t enpin) {
     cfg_setup(intpin, enpin, 1000000, LOADCELL4_SET_DEV_ADDR);
 }
+
 void LoadCell4_HSH::cfg_setup(uint8_t intpin, uint8_t enpin, uint32_t i2c_speed, uint8_t i2c_slave_address) {
     cfg.en = enpin;
     cfg.int_pin = intpin;
     cfg.i2c_speed = i2c_speed;
     cfg.i2c_address = i2c_slave_address;
 }
+
 uint8_t LoadCell4_HSH::init() {
     ctx.slave_address = cfg.i2c_address;
     ctx.en = cfg.en;
@@ -18,20 +20,25 @@ uint8_t LoadCell4_HSH::init() {
     pinMode(ctx.en, OUTPUT);
     return 1;
 }
+
 LoadCell4_HSH::LoadCell4_HSH() { this->I2CWire = &Wire; }
+
 void LoadCell4_HSH::setWireObj(TwoWire *wire_obj) { this->I2CWire = wire_obj; }
+
 void LoadCell4_HSH::changeWireSpeed(unsigned int wireSpeed) {
     this->I2CWire->end();
     this->I2CWire->setClock(wireSpeed);
     this->I2CWire->begin();
     this->dev_hw_reset();
 }
+
 void LoadCell4_HSH::restartAndWait(unsigned int delayMillis) {
     power_dev(LOADCELL4_PWR_OFF);
     delay(delayMillis);
     power_dev(LOADCELL4_PWR_ON);
     delay(delayMillis);
 }
+
 void LoadCell4_HSH::read_raw(uint32_t *rx_data) {
     uint8_t rx_buf[4];
     uint32_t tmp;
@@ -358,7 +365,6 @@ float LoadCell4_HSH::get_raw_weight_data(uint8_t shotCounts) {
 }
 
 // --------------------------------------------- PRIVATE FUNCTION DEFINITIONS
-
 void LoadCell4_HSH::dev_hw_reset() {
     digitalWrite(ctx.en, LOW);
     dev_reset_delay();

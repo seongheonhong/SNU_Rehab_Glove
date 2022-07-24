@@ -1,8 +1,6 @@
 #include <Glove.h>
 
-#include "LoadCell4_HSH.h"
-
-#ifdef LOADCELL4_H
+#ifdef LOADCELL4_HSH
 
 const float read2force = 128 * LOADCELL_FS / (pow(2, (AMP_RESBITS)) * AMP_GAIN * LOADCELL_RO_MVV);
 const uint8_t LC4_COUNT = 2;
