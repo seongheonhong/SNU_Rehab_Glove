@@ -1,4 +1,4 @@
-#include "Glove.h"
+#include "func.h"
 
 uint8_t findInd(uint8_t* arr, uint8_t value){
     uint8_t i = 0;
@@ -7,10 +7,8 @@ uint8_t findInd(uint8_t* arr, uint8_t value){
             return i;
         }
     }
-    return 0;
+    return 0;    
 }
 
-void timer3_ISR(void){
-
-    processADC();    
+void timer3_ISR(void){    
 }
