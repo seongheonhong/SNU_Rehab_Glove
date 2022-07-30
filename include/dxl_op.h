@@ -14,9 +14,17 @@ extern double d_tPos[DXL_COUNT], d_tPWM[DXL_COUNT], d_tCur[DXL_COUNT], d_tVel[DX
 extern double d_pForce[DXL_COUNT];
 extern double d_tForce[DXL_COUNT];
 
-void setDxl(Dynamixel dxl);
-void updatePresentPos(Dynamixel dxl, int32_t* pos_buffer, uint8_t id);
-void updatePresentPWM(Dynamixel dxl, int32_t* pwm_buffer, uint8_t id);
-void printDxlPos(Dynamixel dxl);
+void setDxl(Dynamixel* dxl);
+void updatePresentPos(Dynamixel* dxl, int32_t* pos_buffer);
+void updatePresentPos(Dynamixel* dxl, int32_t* pos_buffer, uint8_t id);
+void updatePresentPWM(Dynamixel* dxl, int32_t* pwm_buffer, uint8_t id);
+void setReturnDelay(Dynamixel *dxl, uint8_t id, uint8_t delayTime);
+void setPidGain(Dynamixel* dxl);
+void setPidGain(Dynamixel* dxl, uint8_t id);
+void setProfileAcc(Dynamixel* dxl);
+void setProfileAcc(Dynamixel* dxl, uint8_t id);
+void setProfileVel(Dynamixel* dxl);
+void setProfileVel(Dynamixel* dxl, uint8_t id);
+void printDxlPos(Dynamixel* dxl);
 
 #endif

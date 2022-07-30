@@ -12,7 +12,7 @@
 //#include <ADC_util.h>
 #include <ADS1115_WE.h> 
 #include <Dynamixel.h>
-#include <LoadCell4_HSH.h>
+#include "LoadCell4_HSH.h"
 
 
 // Pin Configuration
@@ -65,6 +65,16 @@ const uint8_t LC4_I2C_ADDRESS[] = {0x24, 0x27};
 
 const uint8_t dxl_id[DXL_COUNT] = {1, 2};
 const uint16_t dxl_pwm_limit[DXL_COUNT] = {880, 880};
+const uint16_t dxl_position_Pgain[DXL_COUNT] = {100, 100};
+const uint16_t dxl_position_Igain[DXL_COUNT] = {0, 0};
+const uint16_t dxl_position_Dgain[DXL_COUNT] = {40, 40};
+const uint16_t dxl_admittance[DXL_COUNT] = {400, 400};
+const uint16_t dxl_force_queue_size[DXL_COUNT] = {25, 25};
+
+
+
+const uint16_t dxl_profile_acc[DXL_COUNT] = {1, 1};
+const uint16_t dxl_profile_vel[DXL_COUNT] = {1, 1};
 
 
   
