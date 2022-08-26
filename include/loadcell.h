@@ -2,7 +2,7 @@
 
 #ifndef LOADCELL
 #define LOADCELL
-#define LC4_COUNT 2
+
 
 const float read2force = 128 * LOADCELL_FS / (pow(2, (AMP_RESBITS)) * AMP_GAIN * LOADCELL_RO_MVV);
 void readLC4EEPROM(uint8_t id, uint8_t cmd_byte);

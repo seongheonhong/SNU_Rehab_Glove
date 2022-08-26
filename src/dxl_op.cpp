@@ -9,6 +9,7 @@ void setDxl(Dynamixel* dxl) {
     for (uint8_t id = 0; id < DXL_COUNT; id++) {
         if (!dxl->ping(dxl_id[id])) {
             connected = false;
+            DEBUG_SERIAL.println("FAILED ID: " + String(dxl_id[id]));
             break;            
         }        
         dxl->torqueEnable(dxl_id[id], false);
@@ -17,6 +18,8 @@ void setDxl(Dynamixel* dxl) {
         DEBUG_SERIAL.println("DXL setup done!");
     } else {
         DEBUG_SERIAL.println("DXL setup failed!");
+        delay(500);
+        SCB_AIRCR = 0x05FA0004;
     }
     delay(2000);
     return;
