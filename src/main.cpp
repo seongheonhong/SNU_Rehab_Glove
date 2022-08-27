@@ -1,7 +1,7 @@
 #include "Glove.h"
 #include "func.h"
 #include "setup.h"
-#include "loadcell.h"
+#include <loadcell.h>
 #include "adc_glove.h"
 #include "dxl_op.h"
 #include "mode.h"
