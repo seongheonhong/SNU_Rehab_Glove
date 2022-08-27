@@ -7,6 +7,6 @@ void setLC4(void);
 void setTimers(void);
 void setPinModes(void);
 void setDebugSerial(unsigned long _baudrate);
-void setextADC(ADS1115_WE adcext);
+void setextADC(ADS1115_WE* adcext);
 
 #endif

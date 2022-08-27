@@ -7,12 +7,12 @@ void setPinModes() {
     //  for (uint8_t i = 0; i < 12; i++) pinMode(dacBits[i], OUTPUT);
 }
 
-void setextADC(ADS1115_WE adcext) {
-    if (!adcext.init()) Serial.println("ADS1115 not connected!");
+void setextADC(ADS1115_WE* adcext) {
+    if (!adcext->init()) Serial.println("ADS1115 not connected!");
     if (EXTADC_CHANGE_SETTING) {
-        adcext.setVoltageRange_mV(ADS1115_RANGE_4096);
-        adcext.setCompareChannels(ADS1115_COMP_0_GND);
-        adcext.setMeasureMode(ADS1115_CONTINUOUS);
+        adcext->setVoltageRange_mV(ADS1115_RANGE_4096);
+        adcext->setCompareChannels(ADS1115_COMP_0_GND);
+        adcext->setMeasureMode(ADS1115_CONTINUOUS);
     }
 }
 
