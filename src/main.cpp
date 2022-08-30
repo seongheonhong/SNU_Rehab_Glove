@@ -27,14 +27,14 @@ void setup() {
     setPidGain(&dxl);
     initialUnWind(&dxl);
     // setProfileAcc(&dxl);
-    // setProfileVel(&dxl);
+    setProfileVel(&dxl);
     setTimers();
     setPinModes();    
     setLC4();     
     tare(240);   
     setextADC(&adcext);    
     saveInitialPos(&dxl, "no-slack");    
-    saveInitialFlexorPos(&dxl, "no-slack");
+    saveInitialFlexorPos(&dxl, "no-slack");    
     initializeQueue();
     DEBUG_SERIAL.println("SETUP END");
     setTimers();

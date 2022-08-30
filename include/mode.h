@@ -20,5 +20,5 @@ void saveInitialPos(Dynamixel* dxl, String method);
 void saveInitialPos(Dynamixel* dxl, uint8_t id, String method);
 void saveInitialFlexorPos(Dynamixel* dxl, String method);
 void saveInitialFlexorPos(Dynamixel* dxl, uint8_t id, String method);
-
+void moveRelativePos(Dynamixel* dxl, uint8_t id, int32_t relPos);
 #endif

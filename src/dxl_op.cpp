@@ -18,7 +18,7 @@ void setDxl(Dynamixel* dxl) {
         DEBUG_SERIAL.println("DXL setup done!");
     } else {
         DEBUG_SERIAL.println("DXL setup failed!");
-        delay(500);
+        delay(3500);
         SCB_AIRCR = 0x05FA0004;
     }
     delay(2000);

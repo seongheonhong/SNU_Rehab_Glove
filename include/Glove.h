@@ -52,7 +52,7 @@ const uint8_t LC4_I2C_ADDRESS[] = {0x24, 0x27};
 #define FS_LOAD                         20 * 9.81
 #define RATED_OUTPUT                    1.416
 
-// PID Settings
+// PID Settings - NOT USED IN CURRENT VERSION
 #define PID_UPDATE_US                   19999
 #define PID_KP                          0.7
 #define PID_KI                          0.1
@@ -70,12 +70,12 @@ const uint16_t dxl_position_Pgain[DXL_COUNT] = {100, 100, 400};
 const uint16_t dxl_position_Igain[DXL_COUNT] = {0, 0, 100};
 const uint16_t dxl_position_Dgain[DXL_COUNT] = {40, 40, 0};
 const uint16_t dxl_admittance[DXL_COUNT] = {400, 400, 0};
-const uint16_t dxl_force_queue_size[DXL_COUNT] = {75, 75, 0};
+const uint16_t dxl_force_queue_size[DXL_COUNT] = {50, 50, 0};
 
 
 
 const uint16_t dxl_profile_acc[DXL_COUNT] = {1, 1, 1};
-const uint16_t dxl_profile_vel[DXL_COUNT] = {1, 1, 1};
+const uint16_t dxl_profile_vel[DXL_COUNT] = {50, 50, 50};
 
 
   

@@ -157,3 +157,7 @@ void saveInitialPos(Dynamixel* dxl, uint8_t id, String method) {
         printDxlPos(dxl);
     }
 }
+void moveRelativePos(Dynamixel* dxl, uint8_t id, int32_t relPos){
+    dxl->torqueEnable(dxl_id[id], true);
+    dxl->goalPosition(dxl_id[id], relPos);
+}
