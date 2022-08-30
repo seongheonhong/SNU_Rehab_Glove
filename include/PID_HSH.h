@@ -1,15 +1,17 @@
 #ifndef PID_H
 #define PID_H
+
 #define FORWARD_DIR true
 #define REVERSE_DIR false
-
 class PID_HSH
 {
 public:
-    PID_HSH(double, double, double, unsigned int, double*, double*, double*);
+    PID_HSH();
+    PID_HSH(double, double, double, unsigned int, double* c, double* m, double* t);    
     bool updatePID();
     void setAntiWindup(double);
     void setPIDCoeffs(double, double, double);
+    void setPIDBuffers(double* c, double* m, double* t);
     void setPeriodinMicroseconds(unsigned int);
     void setPeriodinMilliseconds(unsigned int);
     void setControlLimits(double, double);

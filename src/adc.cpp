@@ -1,20 +1,20 @@
-#include "Glove.h"
+#include "adc_glove.h"
 
-#ifdef ADC_H
-    const uint8_t dacBits[12] = {41, 40, 39, 38, 37, 36, 35, 34, 33, 32, 31, 30};
-    const int aReadPinP = A8, aReadPinN = A9;
-    const uint32_t buffer_size = 10;
-    DMAMEM static volatile uint16_t __attribute__((aligned(32))) dma_adc_buff1[buffer_size];
-    DMAMEM static volatile uint16_t __attribute__((aligned(32))) dma_adc_buff2[buffer_size];
-    AnalogBufferDMA abdma1(dma_adc_buff1, buffer_size, dma_adc_buff2, buffer_size);
-    #ifdef ADC_DUAL_ADCS
-      DMAMEM static volatile uint16_t __attribute__((aligned(32))) dma_adc2_buff1[buffer_size];
-      DMAMEM static volatile uint16_t __attribute__((aligned(32))) dma_adc2_buff2[buffer_size];
-      AnalogBufferDMA abdma2(dma_adc2_buff1, buffer_size, dma_adc2_buff2, buffer_size);
-    #endif
-  #endif
 
-void setADC(ADC *adc) {
+const uint8_t dacBits[12] = {41, 40, 39, 38, 37, 36, 35, 34, 33, 32, 31, 30};
+const int aReadPinP = A8, aReadPinN = A9;
+const uint32_t buffer_size = 10;
+DMAMEM static volatile uint16_t __attribute__((aligned(32))) dma_adc_buff1[buffer_size];
+DMAMEM static volatile uint16_t __attribute__((aligned(32))) dma_adc_buff2[buffer_size];
+AnalogBufferDMA abdma1(dma_adc_buff1, buffer_size, dma_adc_buff2, buffer_size);
+
+#ifdef ADC_DUAL_ADCS
+DMAMEM static volatile uint16_t __attribute__((aligned(32))) dma_adc2_buff1[buffer_size];
+DMAMEM static volatile uint16_t __attribute__((aligned(32))) dma_adc2_buff2[buffer_size];
+AnalogBufferDMA abdma2(dma_adc2_buff1, buffer_size, dma_adc2_buff2, buffer_size);
+#endif
+
+void adc_set(ADC *adc) {
   
   pinMode(aReadPinP, INPUT); pinMode(aReadPinN, INPUT);
   adc->adc0->setAveraging(10); // set number of averages

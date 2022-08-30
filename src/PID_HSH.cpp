@@ -13,6 +13,19 @@ PID_HSH::PID_HSH(double kp, double ki, double kd, unsigned int dT, double* contr
     setControlLimits(0, 255);    
 }
 
+PID_HSH::PID_HSH(){
+    _kp = 1.0;
+    _ki = 0.0;
+    _kd = 0.0;    
+    _control = nullptr;
+    _measure = nullptr;
+    _target = nullptr;    
+        
+    setPeriodinMicroseconds(1000);
+    setScaler(1.0);
+    setControlLimits(0, 255);
+}
+
 void PID_HSH::computePID(){
     computePID(_dTSec);
 }
@@ -49,6 +62,12 @@ void PID_HSH::setPIDCoeffs(double pgain, double igain, double dgain){
     _kp = pgain;
     _ki = igain;
     _kd = dgain;
+}
+
+void PID_HSH:: setPIDBuffers(double* control, double* measure, double* target){
+    _control = control;
+    _measure = measure;
+    _target = target;
 }
 
 void PID_HSH::setControlLimits(double contMax, double contMin){
